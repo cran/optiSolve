@@ -24,7 +24,7 @@
     group        <- group[ord]
     ids          <- split(names(group), group)
   
-    nid <- pmin(lapply(ids,length), round(300/length(ids)))
+    nid <- pmin(lapply(ids,length), round(500000/length(ids)))
     ids <- mapply(function(n, id){id[1:n]}, id = ids, n = nid, SIMPLIFY=FALSE)
     ids <- unlist(ids)
     rid <- op$id[!(op$id %in% ids)]

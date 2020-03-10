@@ -58,8 +58,7 @@ The following steps are included in solving a constrained optimization problem (
 Maintainer: \packageMaintainer{optiSolve}
 }
 \references{
-Borchers, B. (1999). CSDP, A C Library for Semidefinite Programming Optimization Methods and Software 11(1):613-623
-\code{http://euler.nmt.edu/~brian/csdppaper.pdf}
+%Borchers, B. (1999). CSDP, A C Library for Semidefinite Programming Optimization Methods and Software 11(1):613-623 \code{http://euler.nmt.edu/~brian/csdppaper.pdf}
 
 Kraft, D. (1988). A software package for sequential quadratic programming, Technical Report DFVLR-FB 88-28, Institut fuer Dynamik der Flugsysteme, Oberpfaffenhofen, July 1988.
 

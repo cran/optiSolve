@@ -2,6 +2,7 @@
 
 "solvecop"<-function(op, solver="default", make.definite=FALSE, X=NULL, quiet=FALSE, ...){
   if(class(op)!="coProblem"){stop("Argument op has not class 'coProblem'.")}
+  if(solver=="csdp"){stop("Option 'csdp' is disabled because the package Rcsdp has been removed from Cran.\n")}
   if(!solver %in% c("alabama","cccp","cccp2","csdp","slsqp","default")){stop("Unknown solver.\n")}
 
   opt <- list(...)
@@ -60,7 +61,7 @@
   if(solver=="cccp2"  ){res <- call_cccp2(op,   X, opt, quiet=quiet)}
   if(solver=="slsqp"  ){res <- call_slsqp(op,   X, opt, quiet=quiet)}
   if(solver=="alabama"){res <- call_alabama(op, X, opt, quiet=quiet)}
-  if(solver=="csdp"   ){res <- call_csdp(op,    X, opt, quiet=quiet)}
+# if(solver=="csdp"   ){res <- call_csdp(op,    X, opt, quiet=quiet)}
   
   ### Add removed variables ###
   
