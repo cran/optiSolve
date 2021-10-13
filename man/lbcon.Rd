@@ -73,7 +73,7 @@ Evaluation <- validate(mycop, res)
 #
 #   Variable     Value      Bound    OK?
 #   -------------------------------------
-#   BV           0.5501 max        :      
+#   BV           0.5502 max        :      
 #   -------------------------------------
 #   lower bounds all x  >=  lb     : TRUE 
 #   upper bounds all x  <=  ub     : TRUE 

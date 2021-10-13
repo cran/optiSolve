@@ -8,10 +8,14 @@
   rc <- list()
   if(length(qc)>0){
     for(i in (length(qc):1)){
-      if(!(class(qc[[i]])%in%c("quadCon", "ratioCon"))){
+      if(!("quadCon" %in% class(qc[[i]])) && !("ratioCon" %in% class(qc[[i]]))){
         stop("Additional arguments must be quadratic or rational constraints.\n")
       }
-      if(class(qc[[i]])=="ratioCon"){
+      if("quadCon" %in% class(qc[[i]])){
+        class(qc[[i]])  <- "quadCon"
+        }
+      if("ratioCon" %in% class(qc[[i]])){
+        class(qc[[i]]) <- "ratioCon"
         rc[[length(rc)+1]]<-qc[[i]]
         qc[[i]]<-NULL
       }
@@ -20,11 +24,12 @@
   
   
   ### Check class names #######################################
-  if(!(class(f)%in% c("linFun","quadFun", "ratioFun"))){stop("Invalid class name of the objective function.")}
+  if(!("linFun" %in% class(f)) && !("quadFun" %in% class(f)) && !("ratioFun" %in% class(f))){stop("Invalid class name of the objective function.")}
+  class(f) <- intersect(class(f), c("linFun", "quadFun", "ratioFun"))[1]
   if(!is.logical(max)){stop("Argument max must be logical.")}
-  if(!is.null(lb) & (class(lb)!="lbCon")){stop("Invalid class name of lower bound lb.")}
-  if(!is.null(ub) & (class(ub)!="ubCon")){stop("Invalid class name of upper bound ub.")}
-  if(!is.null(lc) & (class(lc)!="linCon")){stop("Invalid class name of linear constraint lc.")}
+  if(!is.null(lb)){if("lbCon" %in% class(lb)){class(lb) <- "lbCon"}else{stop("Invalid class name of lower bound lb.")}}
+  if(!is.null(ub)){if("ubCon" %in% class(ub)){class(ub) <- "ubCon"}else{stop("Invalid class name of upper bound ub.")}}
+  if(!is.null(lc)){if("linCon" %in% class(lc)){class(lc)<- "linCon"}else{stop("Invalid class name of linear constraint lc.")}}
   
   ### Find the complete set of variables ######################
   ids <- f$id

@@ -1,8 +1,8 @@
 Package: optiSolve
 Type: Package
 Title: Linear, Quadratic, and Rational Optimization
-Version: 0.1.2
-Date: 2020-03-10
+Version: 1.0
+Date: 2021-10-13
 Author: Robin Wellmann
 Maintainer: Robin Wellmann <r.wellmann@uni-hohenheim.de>
 Depends: R (>= 3.4)
@@ -10,8 +10,8 @@ Description: Solver for linear, quadratic, and rational programs with linear, qu
 License: GPL-2
 Imports: Matrix, shapes, alabama, cccp, nloptr, MASS, methods, plyr,
         stringr, stats, Rcpp (>= 0.12.4)
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.2
 NeedsCompilation: no
-Packaged: 2020-03-10 06:16:14 UTC; Robin
+Packaged: 2021-10-13 11:55:24 UTC; Robin
 Repository: CRAN
-Date/Publication: 2020-03-10 07:10:09 UTC
+Date/Publication: 2021-10-13 12:32:04 UTC

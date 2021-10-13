@@ -1,7 +1,7 @@
 
 
 "solvecop"<-function(op, solver="default", make.definite=FALSE, X=NULL, quiet=FALSE, ...){
-  if(class(op)!="coProblem"){stop("Argument op has not class 'coProblem'.")}
+  if(!("coProblem" %in% class(op))){stop("Argument op has not class 'coProblem'.")}else{class(op)<-"coProblem"}
   if(solver=="csdp"){stop("Option 'csdp' is disabled because the package Rcsdp has been removed from Cran.\n")}
   if(!solver %in% c("alabama","cccp","cccp2","csdp","slsqp","default")){stop("Unknown solver.\n")}
 
