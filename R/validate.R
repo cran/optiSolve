@@ -6,13 +6,13 @@
   x <- sol$x
 
   ### Evaluate objective function ###
-  if(class(op$f)=="linFun"){
+  if(inherits(op$f, "linFun")){
     val <- c(t(op$f$a)%*%x + op$f$d)
   }
-  if(class(op$f)=="quadFun"){
+  if(inherits(op$f, "quadFun")){
     val <- c(t(x)%*%(op$f$Q)%*%x + t(op$f$a)%*%x + op$f$d)
   }
-  if(class(op$f)=="ratioFun"){
+  if(inherits(op$f, "ratioFun")){
     val <- c(t(x)%*%(op$f$Q1)%*%x + t(op$f$a1)%*%x + op$f$d1)/c(t(x)%*%(op$f$Q2)%*%x + t(op$f$a2)%*%x + op$f$d2)
   }
 

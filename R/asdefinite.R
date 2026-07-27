@@ -8,10 +8,10 @@
 
 
 "asdefinite" <- function(op, quiet=FALSE){
-  if(class(op$f)=="quadFun"){
+  if(inherits(op$f, "quadFun")){
     op$f$Q <- asDefinite(op$f$Q, quiet=quiet)
   }
-  if(class(op$f)=="ratioFun"){
+  if(inherits(op$f, "ratioFun")){
     #op$f$Q1 <- asDefinite(op$f$Q1, quiet=quiet) #necessary?
     #op$f$Q2 <- asDefinite(op$f$Q2, quiet=quiet) #necessary?
   }

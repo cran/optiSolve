@@ -6,28 +6,28 @@
 
 "adjust"<-function(x, ids){
   id <- x$id[x$id%in%ids]
-  if(class(x)=="linCon"){
+  if(inherits(x, "linCon")){
     u        <- x$A
     x$A      <- matrix(0, nrow=nrow(x$A), ncol=length(ids), dimnames=list(rownames(x$A), ids))
     x$A[,id] <- u[,id]
     x$id     <- ids
   }
   
-  if(class(x) %in% c("linFun", "quadFun", "quadCon")){
+  if(inherits(x, c("linFun", "quadFun", "quadCon"))){
     u       <- x$a
     x$a     <- setNames(rep(0, length(ids)), ids)
     x$a[id] <- u[id]
     x$id    <- ids
   }
   
-  if(class(x) %in% c("quadFun", "quadCon")){
+  if(inherits(x, c("quadFun", "quadCon"))){
     u          <- x$Q
     x$Q        <- matrix(0, nrow=length(ids), ncol=length(ids), dimnames=list(ids, ids))
     x$Q[id,id] <- u[id,id]
     x$id       <- ids
   }
   
-  if(class(x) %in% c("ratioFun", "ratioCon")){
+  if(inherits(x, c("ratioFun", "ratioCon"))){
     u            <- x$a1
     x$a1         <- setNames(rep(0, length(ids)), ids)
     x$a1[id]     <- u[id]

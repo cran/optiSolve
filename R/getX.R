@@ -9,7 +9,7 @@
 ##################################################################
 
 "getX" <- function(op){
-  if(class(op$f)=="ratioFun"){
+  if(inherits(op$f, "ratioFun")){
     N <- nrow(op$f$Q2)
   
     ### Define a new optimization problem op2 with a  #############

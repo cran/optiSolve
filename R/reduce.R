@@ -15,20 +15,20 @@
   op$x[rid] <- op$lb$val[rid]
   
   #Remove variables from f
-  if(class(op$f)=="linFun"){
+  if(inherits(op$f, "linFun")){
     op$f$d  <- op$f$d + sum(op$f$a[rid]*rx)
     op$f$a  <- op$f$a[id]
     op$f$id <- id
   }
   
-  if(class(op$f)=="quadFun"){
+  if(inherits(op$f, "quadFun")){
     op$f$d  <- op$f$d + sum(op$f$a[rid]*rx) + c(t(rx)%*%(op$f$Q[rid,rid])%*%rx)
     op$f$a  <- op$f$a[id] + 2*c(op$f$Q[id, rid]%*%rx)
     op$f$Q  <- op$f$Q[id, id]
     op$f$id <- id
   }
   
-  if(class(op$f)=="ratioFun"){
+  if(inherits(op$f, "ratioFun")){
     op$f$d1 <- op$f$d1 + sum(op$f$a1[rid]*rx) + c(t(rx)%*%(op$f$Q1[rid,rid])%*%rx)
     op$f$a1 <- op$f$a1[id] + 2*c(op$f$Q1[id, rid]%*%rx)
     op$f$Q1 <- op$f$Q1[id, id]

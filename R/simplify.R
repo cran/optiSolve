@@ -8,14 +8,14 @@
 ##################################################################
 
 "simplify" <- function(op){
-  if(class(op$f)=="linFun"){
+  if(inherits(op$f, "linFun")){
     op$f$d <- 0*op$f$d
     if(op$max){
       op$f$a <- - op$f$a
       op$max <- FALSE
     }
   }
-  if(class(op$f)=="quadFun"){
+  if(inherits(op$f, "quadFun")){
     op$f$d <- 0*op$f$d
   }
   if(!is.null(op$lc)){
